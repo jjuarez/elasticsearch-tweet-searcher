@@ -9,21 +9,42 @@ module TweetSearcher
 
 
   class Cli
-    
-    def self.run(parameters)
-      
-      es = Stretcher::Server.new(parameters[:url])
 
-      es.index(:tweets).delete if es.index(:tweets).exists?
+    attr_reader :es
+     
+    def initialize(url: ENV['ELASTICSEARCH_URL'], loglevel: ::Logger::INFO)
+      
+      @logger       = ::Logger.new(STDOUT)
+      @logger.level = loglevel
+      
+      @es           = Stretcher::Server.new(url)
+        
+      self
+    end
+
+    
+    def delete_index(index)
+    
+      if @es.index(index).exists?
+        
+        @logger.warn("Deleting index: '#{index}")
+        @es.index(index).delete
+      end
+    end
+    
+    
+    def run(file)
+   
+      @logger.info("Running...")
+      
+      delete_index(:tweets)
 
       es.index(:tweets).bulk_index [].tap { |docs|
 
-        CSV.foreach(parameters[:file], headers: true) do |row|
-
-          docs << row.to_hash.merge({
-            '_type' =>'tweet',
-            '_id'   =>row['tweet_id']
-          })
+        CSV.foreach(file, headers: true) do |row|
+          
+          @logger.debug row.inspect
+          docs << row.to_hash.merge({ '_type' =>'tweet', '_id' =>row['tweet_id']})
         end
       }
     end

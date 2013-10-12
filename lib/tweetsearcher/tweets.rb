@@ -8,9 +8,7 @@ module TweetSearcher
     
     def self.match(es, text: DEFAULT_TEXT, size: DEFAULT_SIZE)
 
-      es.index(:tweets).search size: size, query: { 
-        match: { text: text }
-      }
+      es.index(:tweets).search(size: size, query: { match: { text: text } })
     end
   end
 end

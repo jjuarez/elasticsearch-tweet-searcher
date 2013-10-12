@@ -4,6 +4,4 @@ $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'tweetsearcher'
 
 
-TweetSearcher::Cli.run(
-  :url  =>Choice.choices[:url], 
-  :file =>Choice.choices[:file])
+TweetSearcher::Cli.new(url: Choice.choices[:url]).run(Choice.choices[:file])

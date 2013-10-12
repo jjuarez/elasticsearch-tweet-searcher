@@ -32,31 +32,35 @@ module TweetSearcher
       slim :not_found
     end
   
+  
     ##
     # Routes
     get '/' do
-      
       slim :home
     end
     
+    get '/about' do
+      slim :about
+    end
     
-    get '/contacto' do
-      
+    get '/contact' do  
       slim :contact
     end
     
-    
     get '/search' do
-      
-      slim :search
+      slim :search_form
     end
     
     
-    post '/show_tweets' do
+    post '/do_search' do
       
-      slim :tweets, locals: {
-        
-        tweets: Tweets.match(EM, text: params[:word], size: 100)
+      word = params[:word]
+      size = params[:size]
+      
+      slim :show_tweets, locals: {
+          
+        word: word,
+        tweets: Tweets.match(EM, text: word, size: size)
       }
     end
   end

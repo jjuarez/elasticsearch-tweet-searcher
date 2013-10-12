@@ -1,2 +1,2 @@
-elasticsearch: elasticsearch -f
-web:           bundle exec shotgun --server thin --port 9292
+elasticsearch: elasticsearch -f -D ./config/elasticsearch.xml
+web:           bundle exec rackup --server thin --port 9292

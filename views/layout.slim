@@ -1,25 +1,14 @@
-doctype html 
-html lang="es"
-  head 
-    meta charset="utf-8"
-    title Elastic Search buscador de Tweets
-    meta name="keywords" content="elasticsearch poc sinatra pp"
-    meta name="author"   content="Javier Juarez"
-    link rel="stylesheet" href="/css/bootstrap.css"
-    link rel="stylesheet" href="/css/bootstrap-theme.css"
-    link rel="stylesheet" href="/css/application.css"
-  body 
-    h1 Buscador de Tweets con ElasticSearch
-    nav
-      ul
-        li 
-          a href="/" title="Home" Home
-        li
-          a href="/contacto" title="Contacto" Contacto
-  section class="main content"
-    == yield
-  footer
-    div id="footer"
-      p © Javier Juarez 2013
-  script src="/js/bootstrap.js"
-  script src="/js/jquery.js"
+doctype
+html lang="en"
+  head
+    title
+      | Tweet searcher with Elastic Search
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    link[href="css/bootstrap.min.css" rel="stylesheet" media="screen"]
+    link[href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"]
+  body
+    h1
+      | Tweet searcher with Elastic Search!
+  == yield
+  script[src="js/jquery.min.js"]
+  script[src="js/bootstrap.min.js"]

@@ -6,12 +6,14 @@ gem "foreman"
 gem "sinatra"
 gem "slim"
 gem "choice"
+gem "puma"
 
 
 group :development do
 
   gem "bundler"
   gem "shotgun"
+  gem "thin"
   gem "rake"
   gem "rdoc"
 end

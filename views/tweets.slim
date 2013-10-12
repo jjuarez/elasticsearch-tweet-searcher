@@ -1,0 +1,4 @@
+h2= "Total #{tweets.total} tweets matching word: '#{params[:word]}'"
+ul.tweets
+	- tweets.results.each do |t|
+		li= t.text

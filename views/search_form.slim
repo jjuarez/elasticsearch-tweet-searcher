@@ -1,16 +1,17 @@
-form.form-horizontal[role="form" action="/do_search" method="POST"]
-  .form-group
-    label.col-lg-2.control-label[for="word"]
-      | Word
-    .col-lg-10
-      input#word.form-control[name="word" type="text" placeholder="word"]
-  .form-group
-    label.col-lg-2.control-label[for="size"]
-      | Size
-    .col-lg-10
-      input#size.form-control[name="size" type="number" placeholder="size"]
-  .form-group
-    .col-lg-offset-2.col-lg-10
-      button.btn.btn-default[type="submit"]
-        | Search!
+.container
+  form.form-horizontal[role="form" action="/do_search" method="POST"]
+    .form-group
+      label.col-lg-2.control-label[for="word"]
+        | Word
+      .col-lg-10
+        input#word.form-control[name="word" type="text" placeholder="word"]
+    .form-group
+      label.col-lg-2.control-label[for="size"]
+        | Size
+      .col-lg-10
+        input#size.form-control[name="size" type="number" placeholder="size"]
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        button.btn.btn-default[type="submit"]
+          | Search!
   

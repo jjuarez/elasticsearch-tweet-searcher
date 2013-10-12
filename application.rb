@@ -18,6 +18,8 @@ module TweetSearcher
       set :root,          File.dirname(__FILE__)
       set :public_folder, File.join(settings.root, 'public')
       
+      enable :logging
+            
       EM = Stretcher::Server.new(ENV['ELASTICSEARCH_URL'])
     end
     
@@ -61,9 +63,12 @@ module TweetSearcher
       word = params[:word]
       size = params[:size]
       
+      redirect "/search" unless word
+      
       slim :show_tweets, locals: {
           
         word:   word,
+        size:   size,
         tweets: Tweets.match(EM, text: word, size: size)
       }
     end

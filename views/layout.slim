@@ -7,8 +7,13 @@ html lang="en"
     link[href="css/bootstrap.min.css" rel="stylesheet" media="screen"]
     link[href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"]
   body
-    h1
-      | Tweet searcher with Elastic Search!
-  == yield
+    container
+      == slim :header
+    container
+      == slim :navbar
+    container
+      == yield
+    container
+      == slim :footer
   script[src="js/jquery.min.js"]
   script[src="js/bootstrap.min.js"]

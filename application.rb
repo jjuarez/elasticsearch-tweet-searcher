@@ -21,17 +21,22 @@ module TweetSearcher
       EM = Stretcher::Server.new(ENV['ELASTICSEARCH_URL'])
     end
     
-    
+    ##
+    # Helpers
     helpers do
 
       #...
     end
     
+    ##
+    # Error handlers
     not_found do
-    
       slim :not_found
     end
-  
+    
+    error do
+      slim :error
+    end
   
     ##
     # Routes
@@ -51,7 +56,6 @@ module TweetSearcher
       slim :search_form
     end
     
-    
     post '/do_search' do
       
       word = params[:word]
@@ -59,7 +63,7 @@ module TweetSearcher
       
       slim :show_tweets, locals: {
           
-        word: word,
+        word:   word,
         tweets: Tweets.match(EM, text: word, size: size)
       }
     end

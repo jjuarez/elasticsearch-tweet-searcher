@@ -16,4 +16,5 @@ group :development do
   gem "thin"
   gem "rake"
   gem "rdoc"
+  gem "html2slim"
 end

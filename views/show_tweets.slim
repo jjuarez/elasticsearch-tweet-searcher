@@ -1,9 +1,10 @@
-.panel.panel-default
-  .panel-heading
-    | Results
-  .panel-body
-    p= "#{tweets.total} tweets matching the word: '#{word}' but you only want see: #{size}"
-  ul.list-group
-  - tweets.results.each do |tweet|
-    li.list-group-item= tweet.text
+.container
+  .panel.panel-default
+    .panel-heading
+      | Results
+    .panel-body
+      p= "#{tweets.total} tweets matching the word: '#{word}' but you only want see: #{size}"
+    ul.list-group
+    - tweets.results.each do |tweet|
+      li.list-group-item= tweet.text
       

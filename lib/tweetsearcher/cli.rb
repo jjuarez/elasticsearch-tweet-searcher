@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rubygems'
 require 'tweetsearcher/options_parser'
 require 'csv'
@@ -41,7 +42,7 @@ module TweetSearcher
 
       es.index(:tweets).bulk_index [].tap { |docs|
 
-        CSV.foreach(file, headers: true) do |row|
+        CSV.foreach(file, headers: true, encoding: "utf-8") do |row|
           
           @logger.debug row.inspect
           docs << row.to_hash.merge({ '_type' =>'tweet', '_id' =>row['tweet_id']})

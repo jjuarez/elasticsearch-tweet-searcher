@@ -10,15 +10,11 @@ nav.navbar.navbar-default[role="navigation"]
       | POC Elastic Search
   .collapse.navbar-collapse.navbar-ex1-collapse
     ul.nav.navbar-nav
-      li.active
-        a[href="/"]
-          | Home
-      li
-        a[href="/about"]
-          | About
-      li
-        a[href="/contact"]
-          | Contact
-      li
-        a[href="/search"]
-          | Search      
+      li[class=current?("/")]
+        a[href="/"] Home
+      li[class=current?("/about")]
+        a[href="/about"] About
+      li[class=current?("/contact")]
+        a[href="/contact"] Contact
+      li[class=current?("/search")]
+        a[href="/search"] Search              

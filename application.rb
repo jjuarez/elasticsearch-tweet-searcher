@@ -27,7 +27,9 @@ module TweetSearcher
     # Helpers
     helpers do
 
-      #...
+      def current?(path)
+        (request.path == path || request.path == path+'/') ? "active" : nil
+      end
     end
     
     ##
